@@ -1,0 +1,15 @@
+.sidenav {
+    margin: 20px 10px
+}
+
+.sidenav-content {
+    margin: 20px 20px
+}
+
+mat-slider {
+    width: 200px;
+}
+
+ckeditor {
+    margin: 20px 20px;
+}

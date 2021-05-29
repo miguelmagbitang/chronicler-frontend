@@ -1,0 +1,29 @@
+<div class="filter-container">
+  <button mat-fab matTooltip="New post" color="primary" (click)="createPost()"><mat-icon>note_add</mat-icon></button>
+  <br/>
+  <br/>
+    <form class="example-form">
+    <mat-form-field appearance="fill" class="filter-element">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill" class="filter-element">
+        <mat-label>Sort by</mat-label>
+        <mat-select>
+          <mat-option value="one">Latest first</mat-option>
+          <mat-option value="two">Earliest first</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Keyword</mat-label>
+          <mat-icon matSuffix>search</mat-icon>
+          <input type="search" matInput placeholder="keyword">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary">Search</button>
+      </form>
+</div>
