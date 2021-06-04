@@ -19,13 +19,6 @@ export class PostEditorComponent implements OnInit {
   date = new FormControl(new Date());
   value = 0;
   public editor = ClassicEditor;
-  public config = {
-    autosave: {
-      // The minimum amount of time the Autosave plugin is waiting after the last data change.
-			waitingTime: 5000,
-			save: (editor: { getData: () => any; }) => this.saveData( editor.getData() )
-    }
-  }
 
   constructor(private route: ActivatedRoute, private postService: PostService) { }
 

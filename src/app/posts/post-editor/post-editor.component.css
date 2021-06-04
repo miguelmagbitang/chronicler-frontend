@@ -1,9 +1,6 @@
-.sidenav {
-    margin: 20px 10px
-}
 
-.sidenav-content {
-    margin: 20px 20px
+.editor-container {
+    margin: 10px 100px;
 }
 
 mat-slider {
@@ -13,3 +10,14 @@ mat-slider {
 ckeditor {
     margin: 20px 20px;
 }
+
+.title {
+    margin-right: 20px;
+    width: 50%;
+}
+
+.date {
+    margin-right: 20px;
+    width: 25%
+}
+
