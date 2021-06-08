@@ -1,12 +1,12 @@
 <div class="editor-container">
-  <form>
+  <form [formGroup]="editForm" (ngSubmit)="onSave()">
     <mat-form-field class="title" appearance="fill"
         floatLabel="true">
-      <input matInput placeholder="Title" required>
+      <input matInput placeholder="Title" required formControlName="title">
     </mat-form-field>
     <mat-form-field appearance="fill" class="date">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker" [value]="date.value">
+      <input matInput [matDatepicker]="picker" formControlName="date" required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -17,14 +17,16 @@
       min="0"
       max="10"
       aria-valuenow="units"
+      formControlName="mood"
+      required
     >
     </mat-slider>
     <ckeditor 
       #myEditor
       [editor]="editor" 
-      [data]="editorData">
+      [data]="content">
     </ckeditor>
     <br>
-    <button mat-flat-button color="primary" (click)="saveArticle()">Save</button>
+    <button mat-flat-button color="primary" [disabled]="!editForm.valid">Save</button>
 </form>
 </div>    

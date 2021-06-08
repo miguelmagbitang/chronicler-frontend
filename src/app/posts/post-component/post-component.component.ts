@@ -2,6 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Post } from '../post.model';
+import { PostContainerComponent } from '../post-container/post-container.component';
+import { PostService } from '../post.service';
+
+
 
 @Component({
   selector: 'app-post-component',
@@ -11,8 +15,9 @@ import { Post } from '../post.model';
 export class PostComponentComponent implements OnInit {
 
   @Input() post!: Post;
+  @Input() id: number;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private postService: PostService) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +27,12 @@ export class PostComponentComponent implements OnInit {
   }
 
   editPost(id: number): void {
+    console.log('id', id);
     this.router.navigate([id, 'edit'], {relativeTo: this.route})
+  }
+
+  deletePost(id: number): void {
+    this.postService.deletePost(id);
   }
 
 }

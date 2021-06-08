@@ -2,15 +2,15 @@ export class Post {
 
     id: number;
     title: string;
-    subtitle: string;
-    pictureUrl: string;
+    date: string;
+    mood: number;
     content: string;
 
-    constructor (id: number, title: string, subtitle: string, pictureUrl: string, content: string) {
-        this.id = id;
+    constructor (title: string, date: string, mood: number, content: string) {
         this.title = title;
-        this.subtitle = subtitle;
-        this.pictureUrl = pictureUrl;
+        this.date = date;
+        this.mood = mood;
         this.content = content;
     }
 }
+

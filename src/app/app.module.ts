@@ -19,6 +19,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
@@ -37,8 +39,10 @@ import { HomeContainerComponent } from './home/home-container/home-container.com
 import { AvatarContainerComponent } from './avatar/avatar-container/avatar-container.component';
 import { PostEditComponent } from './posts/post-edit/post-edit.component';
 import { PostNewComponent } from './posts/post-new/post-new.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostEditorComponent } from './posts/post-editor/post-editor.component';
+import { StriphtmlPipe } from './striphtml.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,8 @@ import { PostEditorComponent } from './posts/post-editor/post-editor.component';
     AvatarContainerComponent,
     PostEditComponent,
     PostNewComponent,
-    PostEditorComponent
+    PostEditorComponent,
+    StriphtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,10 @@ import { PostEditorComponent } from './posts/post-editor/post-editor.component';
     MatBadgeModule,
     MatTabsModule,
     MatSliderModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
     CKEditorModule,
