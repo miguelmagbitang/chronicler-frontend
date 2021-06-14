@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import * as ClassicEditor from '../../ckeditor5autosave';
 import { Post } from '../post.model';
 import { PostService } from '../post.service';
+import * as moment from 'moment';
 
 import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
@@ -35,20 +36,26 @@ export class PostEditorComponent implements OnInit {
   }
 
   onSave() {
-    this.openSnackBar("Post saved!", "OK");
-    console.log(this.getArticleContent());
     this.content = this.getArticleContent();
-    console.log(this.editForm.get("title").value);
-    console.log(this.editForm.get("date").value);
-    console.log(this.editForm.get("mood").value);
-    console.log(this.content);
-    const post = new Post(this.editForm.get("title").value, this.editForm.get("date").value, this.editForm.get("mood").value, this.content);
-    console.log(post);
+    const post: Post = { 
+      id: 0,
+      title: this.editForm.get("title").value, 
+      date: moment(this.editForm.get("date").value).format("YYYY-MM-DD"), 
+      mood: this.editForm.get("mood").value, 
+      content: this.content 
+    };
+    
     if (this.editMode) {
       this.postService.updatePost(this.id, post);
     } else {
       this.postService.addPost(post);
     }
+    // this.postService.error.subscribe(error => {
+    //   console.log(error);
+    //   if (!error) {
+        this.openSnackBar("Post saved!", "OK");
+    //   }
+    // })
   }
 
   private getArticleContent() {

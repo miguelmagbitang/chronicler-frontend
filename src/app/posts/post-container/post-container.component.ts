@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-container',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class PostContainerComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+  createPost(): void {
+    this.router.navigate(['new'], { relativeTo: this.route})
   }
 
 }

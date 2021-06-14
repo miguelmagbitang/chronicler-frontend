@@ -1,8 +1,9 @@
 
     <mat-sidenav-container class="example-container">
-      <mat-sidenav mode="side" opened><app-filter-container></app-filter-container></mat-sidenav>
-      <mat-sidenav-content>
+      <!-- <mat-sidenav mode="side" opened><app-filter-container></app-filter-container></mat-sidenav>
+      <mat-sidenav-content> -->
         <div class="post-container">
+          <button mat-fab matTooltip="New post" color="primary" (click)="createPost()"><mat-icon>note_add</mat-icon></button>
           <mat-paginator [length]="100"
           [pageSize]="10"
           [pageSizeOptions]="[5, 10, 25, 100]">
@@ -13,5 +14,5 @@
         </div>
         <router-outlet></router-outlet>
         
-      </mat-sidenav-content>
-    </mat-sidenav-container>  
+      <!-- </mat-sidenav-content>
+    </mat-sidenav-container>   -->

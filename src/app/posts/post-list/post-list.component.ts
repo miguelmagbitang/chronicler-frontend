@@ -17,10 +17,14 @@ export class PostListComponent implements OnInit {
     this.postService.postsChanged.subscribe(
       (posts: Post[]) => {
         this.posts = posts;
-        console.log('posts subscription', this.posts);
+        console.log('posts subscriptions', this.posts);
       }
     )
-    this.posts = this.postService.getPosts();
+    // this.posts = this.postService.getPosts();
+    // this.postService.getPosts()
+    //   .subscribe(posts => this.posts = posts)
+    this.postService.fetchPosts();
+    // this.posts = this.postService.getPosts();
     console.log('posts get', this.posts);
   }
 

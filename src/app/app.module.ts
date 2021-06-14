@@ -37,8 +37,6 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostDetailComponent } from './posts/post-detail/post-detail.component';
 import { HomeContainerComponent } from './home/home-container/home-container.component';
 import { AvatarContainerComponent } from './avatar/avatar-container/avatar-container.component';
-import { PostEditComponent } from './posts/post-edit/post-edit.component';
-import { PostNewComponent } from './posts/post-new/post-new.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostEditorComponent } from './posts/post-editor/post-editor.component';
 import { StriphtmlPipe } from './striphtml.pipe';
@@ -55,8 +53,6 @@ import { HttpClientModule } from '@angular/common/http';
     PostDetailComponent,
     HomeContainerComponent,
     AvatarContainerComponent,
-    PostEditComponent,
-    PostNewComponent,
     PostEditorComponent,
     StriphtmlPipe
   ],
