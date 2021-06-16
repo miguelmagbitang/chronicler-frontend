@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Post } from '../post.model';
 import { PostService } from '../post.service';
 
@@ -10,22 +11,32 @@ import { PostService } from '../post.service';
 export class PostListComponent implements OnInit {
 
   posts: Post[];
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+  pageEvent: PageEvent;
+  
+  length: number = 5;
+  pageSize: number = 5;
+  pageIndex: number;
 
   constructor(private postService: PostService) { }
+
+  public getServerData(event?: PageEvent) {
+    this.postService.fetchPosts(event.pageIndex, event.pageSize);
+    return event;
+  }
 
   ngOnInit(): void {
     this.postService.postsChanged.subscribe(
       (posts: Post[]) => {
         this.posts = posts;
-        console.log('posts subscriptions', this.posts);
       }
     )
-    // this.posts = this.postService.getPosts();
-    // this.postService.getPosts()
-    //   .subscribe(posts => this.posts = posts)
     this.postService.fetchPosts();
-    // this.posts = this.postService.getPosts();
-    console.log('posts get', this.posts);
+    this.postService.page.subscribe(page => {
+      this.length = page.totalItems;
+    })
   }
 
 }

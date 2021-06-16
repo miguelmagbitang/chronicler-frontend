@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from './post.model';
 import { catchError } from 'rxjs/operators';
@@ -16,8 +16,11 @@ export class PostApiService {
     return this.http.get<Post>(this.url+"/8")
   }
 
-  getAllPosts() {
-    return this.http.get<Post[]>(this.url);
+  getAllPosts(index: number = 0, size: number = 5) {
+    let params = new HttpParams();
+    params = params.append('page', String(index));
+    params = params.append('size', String(size));
+    return this.http.get<{posts:Post[], currentPage:number, totalItems:number, totalPages:number}>(this.url, { params });
   }
 
   addPost(post: Post) {
