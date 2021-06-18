@@ -41,6 +41,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostEditorComponent } from './posts/post-editor/post-editor.component';
 import { StriphtmlPipe } from './striphtml.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+import { authInterceptorProviders } from './userservice/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeContainerComponent,
     AvatarContainerComponent,
     PostEditorComponent,
-    StriphtmlPipe
+    StriphtmlPipe,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +92,7 @@ import { HttpClientModule } from '@angular/common/http';
     CKEditorModule,
     FormsModule 
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

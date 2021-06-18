@@ -1,0 +1,19 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.profile-img-card {
+    border-radius: 50%;
+    height: 5%;
+    width: 5%;
+    margin-bottom: 20px;
+    margin-top: 10px; 
+}
+
+.example-container {
+    margin-top: 10px;
+}
