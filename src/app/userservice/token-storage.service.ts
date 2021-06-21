@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -8,15 +9,19 @@ const USER_KEY = 'auth-user';
 })
 export class TokenStorageService {
 
+  loginChanged = new Subject<Boolean>();
+
   constructor() { }
 
   signOut(): void {
     window.sessionStorage.clear();
+    this.loginChanged.next(true);
   } 
 
   public saveToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
+    this.loginChanged.next(true);
   }
 
   public getToken(): string | null {

@@ -20,6 +20,7 @@
       <button mat-menu-item>Settings</button>
       <button mat-menu-item (click)="onLogout()">Logout</button>
     </mat-menu>
+    <button mat-button routerLink='/login' active *ngIf="!isLoggedIn">Login</button>
   </mat-toolbar>
 </div>
     

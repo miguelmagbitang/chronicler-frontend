@@ -6,6 +6,9 @@
       class="profile-img-card"
     />
     <form [formGroup]="form" (ngSubmit)=onSubmit()>
+      <mat-error *ngIf="isLoginFailed && !!errorMessage">
+        Oops.. we didn't find your account. Try again?
+      </mat-error>
         <div class="example-container">
             <mat-form-field appearance="fill">
               <mat-label>Enter your username</mat-label>
@@ -32,5 +35,7 @@
         </mat-error>
       </div>
     <button mat-flat-button color="primary" [disabled]="!form.valid">Login</button>
+    <hr>
+    <a routerLink='/register'>Create new account</a>
     </form>
 </div>

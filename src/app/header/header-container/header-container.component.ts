@@ -14,7 +14,10 @@ export class HeaderContainerComponent implements OnInit {
   constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    this.tokenStorageService.loginChanged.subscribe(loginChanged => {
+      this.isLoggedIn = !!this.tokenStorageService.getToken();
+      console.log('is logged in', this.isLoggedIn);
+    });
   }
 
   onLogout(): void {

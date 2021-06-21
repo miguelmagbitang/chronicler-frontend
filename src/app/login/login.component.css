@@ -17,3 +17,10 @@
 .example-container {
     margin-top: 10px;
 }
+
+button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
